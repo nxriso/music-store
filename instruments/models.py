@@ -1,0 +1,31 @@
+from django.db import models
+
+
+class Brand(models.Model):
+    name = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='brands/images')
+    website = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Guitar(models.Model):
+    GUITAR_TYPE_ELECTRIC = 'electric'
+    GUITAR_TYPE_ACOUSTIC = 'acoustic'
+    GUITAR_TYPE_CHOICES = [
+        (GUITAR_TYPE_ELECTRIC, 'Electric'),
+        (GUITAR_TYPE_ACOUSTIC, 'Acoustic'),
+    ]
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    model_name = models.CharField(max_length=255)
+    guitar_type = models.CharField(
+        max_length=8,
+        choices=GUITAR_TYPE_CHOICES,
+        default=GUITAR_TYPE_ELECTRIC,
+    )
+    djent = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='guitars/images')
+
+    def __str__(self):
+        return '%s - %s' % (self.brand.name, self.model_name)
