@@ -1,0 +1,12 @@
+<h2>Details</h2>
+<ul>
+	<li>Brand: {{ guitar.brand }}</li>
+	<li>Model: {{ guitar.model_name }}</li>
+	<li>Type: {{ guitar.guitar_type }}</li>
+	<li>But does it djent? {{ guitar.djent }}</li>
+	<li>Featured: {{ guitar.featured }}</li>
+	<li>Price: {{ guitar.price }} Euros</li>
+</ul>
+<img src="{{ guitar.image.url }}">
+<img src="{{ guitar.brand.logo.url }}">
+

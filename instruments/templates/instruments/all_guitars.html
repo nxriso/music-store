@@ -1,0 +1,7 @@
+<h1>All Guitars</h1>
+<ul>
+{% for guitar in guitars %}
+		<li><a href='/all-guitars/{{ guitar.id }}/'>{{ guitar.brand }} {{ guitar.model_name }}</a>
+		</li>
+{% endfor %}
+</ul>
