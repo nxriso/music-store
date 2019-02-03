@@ -1,7 +1,10 @@
-<h1>All Guitars</h1>
+<h2>All Guitars</h2>
+<a href="{% url "index" %}">Home</a>
 <ul>
 {% for guitar in guitars %}
-		<li><a href='/all-guitars/{{ guitar.id }}/'>{{ guitar.brand }} {{ guitar.model_name }}</a>
-		</li>
+	<li><a href="{% url "all_brands" %}{{ guitar.brand.name }}/{{ guitar.model_name }}/">{{ guitar.brand.name }} {{ guitar.model_name }}</a>
+	</li>
+
 {% endfor %}
 </ul>
+

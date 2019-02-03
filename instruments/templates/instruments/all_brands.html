@@ -1,0 +1,10 @@
+<h1>Brands</h1>
+<a href="{% url "index" %}">Home</a>
+<ul>
+{% for brand in brands %}
+		<li><a href="{% url "guitar_brands" brand.name %}">
+			{{ brand.name }}
+		</li>
+{% endfor %}
+
+</ul>
