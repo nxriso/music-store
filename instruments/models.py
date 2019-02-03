@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Brand(models.Model):
@@ -19,6 +20,7 @@ class Guitar(models.Model):
     ]
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     model_name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
     guitar_type = models.CharField(
         max_length=8,
         choices=GUITAR_TYPE_CHOICES,
@@ -31,3 +33,6 @@ class Guitar(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.brand.name, self.model_name)
+
+    def get_absolute_url(self):
+        return reverse('show_details', args=(self.brand.name, self.slug))

@@ -2,7 +2,10 @@
 <a href="{% url "index" %}">Home</a>
 <ul>
 {% for guitar in guitars %}
-	<li><a href="{% url "all_brands" %}{{ guitar.brand.name }}/{{ guitar.model_name }}/">{{ guitar.brand.name }} {{ guitar.model_name }}</a>
+	<li>
+        <a href="{{ guitar.get_absolute_url }}">
+            {{ guitar.brand.name }} {{ guitar.model_name }}
+        </a>
 	</li>
 
 {% endfor %}

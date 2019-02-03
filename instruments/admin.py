@@ -10,4 +10,4 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Guitar)
 class GuitarAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {'slug': ('model_name',)}

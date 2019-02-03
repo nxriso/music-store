@@ -22,9 +22,9 @@ def guitars(request, brand_name):
     return render(request, 'instruments/all_guitars.html', context)
 
 
-def show_details(request, guitar_model_name, brand_name):
+def show_details(request, guitar_slug, brand_name):
     guitar = Guitar.objects.get(
-        model_name=guitar_model_name, brand__name=brand_name
+        slug=guitar_slug, brand__name=brand_name
     )
     context = {
         'guitar': guitar
