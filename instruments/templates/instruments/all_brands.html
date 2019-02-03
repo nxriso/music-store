@@ -2,9 +2,10 @@
 <a href="{% url "index" %}">Home</a>
 <ul>
 {% for brand in brands %}
-		<li><a href="{% url "guitar_brands" brand.name %}">
+	<li>
+		<a href="{{ brand.get_absolute_url }}">
 			{{ brand.name }}
-		</li>
+		</a>
+	</li>
 {% endfor %}
-
 </ul>

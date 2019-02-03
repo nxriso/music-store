@@ -5,7 +5,8 @@ from .models import Brand, Guitar
 
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(Guitar)

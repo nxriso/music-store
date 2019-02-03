@@ -3,7 +3,9 @@
 <h4>Featured guitars</h4>
 {% for guitar in guitars %}
 	{% if guitar.featured %}
-		<a href='{% url "all_brands" %}{{ guitar.brand.name }}/{{ guitar.model_name }}/'>{{ guitar.brand.name }} {{ guitar.model_name }}</a><br>
+		<a href="{{ guitar.get_absolute_url }}">
+            {{ guitar.brand.name }} {{ guitar.model_name }}
+        </a><br>
 
 	{% endif %}
 {% endfor %}

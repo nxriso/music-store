@@ -12,19 +12,19 @@ def all_brands(request):
     return render(request, 'instruments/all_brands.html', context)
 
 
-def guitars(request, brand_name):
-    brand = get_object_or_404(Brand, name=brand_name)
+def guitars(request, brand_slug):
+    brand = get_object_or_404(Brand, slug=brand_slug)
 
-    guitars = Guitar.objects.filter(brand__name=brand.name)
+    guitars = Guitar.objects.filter(brand__slug=brand.slug)
     context = {
         'guitars': guitars,
     }
     return render(request, 'instruments/all_guitars.html', context)
 
 
-def show_details(request, guitar_slug, brand_name):
+def show_details(request, guitar_slug, brand_slug):
     guitar = Guitar.objects.get(
-        slug=guitar_slug, brand__name=brand_name
+        slug=guitar_slug, brand__slug=brand_slug
     )
     context = {
         'guitar': guitar

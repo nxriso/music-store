@@ -4,11 +4,15 @@ from django.urls import reverse
 
 class Brand(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
     logo = models.ImageField(upload_to='brands/images')
     website = models.URLField(blank=True)
 
     def __str__(self):
         return self.website
+
+    def get_absolute_url(self):
+        return reverse('guitar_brands', args=(self.slug,))
 
 
 class Guitar(models.Model):
@@ -35,4 +39,4 @@ class Guitar(models.Model):
         return '%s - %s' % (self.brand.name, self.model_name)
 
     def get_absolute_url(self):
-        return reverse('show_details', args=(self.brand.name, self.slug))
+        return reverse('show_details', args=(self.brand.slug, self.slug))
