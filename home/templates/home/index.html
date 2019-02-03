@@ -3,15 +3,16 @@
 <h4>Featured guitars</h4>
 {% for guitar in guitars %}
 	{% if guitar.featured %}
-		<a href='/all-guitars/{{ guitar.id }}/'>{{ guitar.brand }} {{ guitar.model_name }}</a><br>
+		<a href='{% url "all_brands" %}{{ guitar.brand.name }}/{{ guitar.model_name }}/'>{{ guitar.brand.name }} {{ guitar.model_name }}</a><br>
 
 	{% endif %}
 {% endfor %}
 <br>
-<a href="all-guitars">See all guitars</a>
-<br>
-<br>
-<a href='payment-methods'>Payment Methods</a>
+<a href="{% url "all_brands" %}">See all guitars</a>
+<p>{{ guitars.count }} guitars to choose from!</p>
+
+
+<a href="{% url "payment-methods" %}" >Payment Methods</a>
 <br>
 
 <p>By using this site you agree to our use of cookies</p>
