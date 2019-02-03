@@ -1,5 +1,4 @@
 from django.db import models
-# from django.template.defaultfilters import slugify
 
 
 class Brand(models.Model):
@@ -29,11 +28,6 @@ class Guitar(models.Model):
     featured = models.BooleanField(default=False)
     image = models.ImageField(upload_to='guitars/images')
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    # slug = models.SlugField(max_length=255, unique=True, blank=True)
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.model_name)
-    #     super(Guitar, self).save(*args, **kwargs)
 
     def __str__(self):
         return '%s - %s' % (self.brand.name, self.model_name)
