@@ -23,7 +23,9 @@ def guitars(request, brand_name):
 
 
 def show_details(request, guitar_model_name, brand_name):
-    guitar = Guitar.objects.get(model_name=guitar_model_name, brand__name=brand_name)
+    guitar = Guitar.objects.get(
+        model_name=guitar_model_name, brand__name=brand_name
+    )
     context = {
         'guitar': guitar
     }
