@@ -19,6 +19,7 @@ MEDIA_URL = 'http://localhost:8080/media/'
 INSTALLED_APPS = [
     'instruments',
     'home',
+    'famous_clients',
 
     'django.contrib.admin',
     'django.contrib.auth',
