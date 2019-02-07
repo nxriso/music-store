@@ -1,21 +1,58 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+</head>
 <h1>Music Store the art of shred</h1>
 
-<h4>Featured guitars</h4>
-{% for guitar in guitars %}
-	{% if guitar.featured %}
-		<a href="{{ guitar.get_absolute_url }}">
-            {{ guitar.brand.name }} {{ guitar.model_name }}
-        </a><br>
+<div>Featured guitars</div>
+<div>
+	{% for guitar in guitars %}
+		{% if guitar.featured %}
+			<a href="{{ guitar.get_absolute_url }}">
+            	{{ guitar.brand.name }} {{ guitar.model_name }}
+        	</a>
 
-	{% endif %}
-{% endfor %}
-<br>
-<a href="{% url "all_brands" %}">See all guitars</a>
-<p>{{ guitars.count }} guitars to choose from!</p>
+		{% endif %}
+	{% endfor %}
+</div>
 
+<div>
+	<a href="{% url "all_brands" %}">See all guitars</a>
+</div>
+<div>
+	{{ guitars.count }} guitars to choose from!
+</div>
 
 <a href="{% url "payment-methods" %}" >Payment Methods</a>
-<br>
+
+<div>
+
+<a href="famous-customers">See what others say about us</a>
+
+<div class="slideshow">
+	{% for customer in famous_customers %}
+		<div>
+			{{ customer.order }} of {{ famous_customers.count }}
+			<br>
+			{{ customer.name }}
+			<img src="{{ customer.image.url }}">
+			{{ customer.quote }}
+		</div>
+	{% endfor %}
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.slideshow').slick();
+	});
+</script>
 
 <p>By using this site you agree to our use of cookies</p>
 <p>&copy; all rights reserved</p>
