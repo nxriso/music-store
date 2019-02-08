@@ -1,6 +1,7 @@
 {% extends "music_store/base.html" %}
 
 {% load famous_clients_tags %}
+{% load guitars_tags %}
 
 {% block title %}The art of shred{% endblock %}
 
@@ -9,15 +10,7 @@
 
 <div>Featured guitars</div>
 <div>
-	{% for guitar in guitars %}
-		{% if guitar.featured %}
-			<div><a href="{{ guitar.get_absolute_url }}">
-            	{{ guitar.brand.name }} {{ guitar.model_name }}
-        		</a>
-        	</div>
-
-		{% endif %}
-	{% endfor %}
+	{% render_guitars featured_guitars %}
 </div>
 
 <div>

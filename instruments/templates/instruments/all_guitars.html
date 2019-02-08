@@ -1,17 +1,15 @@
 {% extends "music_store/base.html" %}
 
+{% load guitars_tags %}
+
 {% block title %}Guitars{% endblock %}
 
 {% block content %}
 <h2>All Guitars</h2>
 <a href="{% url "index" %}">Home</a>
 <ul>
-{% for guitar in guitars %}
 	<li>
-        <a href="{{ guitar.get_absolute_url }}">
-            {{ guitar.brand.name }} {{ guitar.model_name }}
-        </a>
+        {% render_guitars guitars %}
 	</li>
-{% endfor %}
 </ul>
 {% endblock %}

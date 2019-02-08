@@ -1,0 +1,8 @@
+<div>
+    {% for guitar in guitars %}
+        <div><a href="{{ guitar.get_absolute_url }}">
+            {{ guitar.brand.name }} {{ guitar.model_name }}
+             </a>
+        </div>
+    {% endfor %}
+</div>

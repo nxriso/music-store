@@ -8,10 +8,13 @@ def index(request):
     guitars = Guitar.objects.all()
     famous_customers = FamousClients.objects.all()
     featured_customers = FamousClients.objects.filter(featured=True)
+    featured_guitars = Guitar.objects.filter(featured=True)
+
     context = {
         'guitars': guitars,
         'famous_customers': famous_customers,
         'featured_customers': featured_customers,
+        'featured_guitars': featured_guitars,
     }
     return render(request, 'home/index.html', context)
 
