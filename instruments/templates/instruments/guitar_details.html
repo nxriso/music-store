@@ -1,6 +1,6 @@
 <h2>Details</h2>
-<a href='http://localhost:8000'>Home</a>
-<br>
+<a href="{% url "index" %}">Home</a>
+
 <ul>
 	<li>Brand: {{ guitar.brand.name }}</li>
 	<li>Model: {{ guitar.model_name }}</li>

@@ -1,0 +1,9 @@
+<div class="slideshow">
+	{% for client in clients %}
+		<div>
+			{{ client.name }}
+			<img src="{{ client.image.url }}">
+			{{ client.quote }}
+		</div>
+	{% endfor %}
+</div>
