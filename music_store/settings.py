@@ -17,10 +17,10 @@ MEDIA_URL = 'http://localhost:8080/media/'
 # Application definition
 
 INSTALLED_APPS = [
-    'famous_clients',
-    'home',
-    'instruments',
     'music_store',
+    'home',
+    'famous_clients',
+    'instruments',
 
     'django.contrib.admin',
     'django.contrib.auth',

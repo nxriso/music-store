@@ -1,11 +1,17 @@
 {% extends "music_store/base.html" %}
 
+{% load home_tags %}
 {% load famous_clients_tags %}
 {% load guitars_tags %}
 
 {% block title %}The art of shred{% endblock %}
 
 {% block content %}
+
+{% for slide in slide %}
+    <div>{% render_slide slide %}</div>
+{% endfor %}
+
 <h1>Music Store the art of shred</h1>
 
 <div>Featured guitars</div>

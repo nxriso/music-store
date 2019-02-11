@@ -1,20 +1,21 @@
 from django.shortcuts import render
 
-from instruments.models import Guitar
 from famous_clients.models import FamousClients
+from instruments.models import Guitar
+from .models import HomeSlide
 
 
 def index(request):
     guitars = Guitar.objects.all()
-    famous_customers = FamousClients.objects.all()
     featured_customers = FamousClients.objects.filter(featured=True)
     featured_guitars = Guitar.objects.filter(featured=True)
+    slide = HomeSlide.objects.all()
 
     context = {
         'guitars': guitars,
-        'famous_customers': famous_customers,
         'featured_customers': featured_customers,
         'featured_guitars': featured_guitars,
+        'slide': slide,
     }
     return render(request, 'home/index.html', context)
 
