@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'home',
     'famous_clients',
     'instruments',
+    'contact',
 
     'django.contrib.admin',
     'django.contrib.auth',
